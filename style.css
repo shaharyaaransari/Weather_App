@@ -21,7 +21,9 @@ body {
   font-family: sans-serif;
   padding: 0 15px;
 }
-
+hr{
+    margin-bottom: 10px;
+}
 .header {
   position: sticky;
   top: 0;
@@ -158,6 +160,114 @@ body {
             text-align: center;
           }
       }
+      & .sunrise-sunset{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+         &.item{
+          display: flex;
+          align-items: center;
+           gap: 10px;
+           & h2{
+margin-top: 15px;
+           }
+         }
+      }
+     & .card-item{
+      display: flex;
+      justify-content: space-between;
+     } 
+
     }
+    & .hourly-forecast{
+      display: grid;
+      grid-template-columns: repeat(8,1fr);
+        column-gap: 10px;
+        &.card{
+text-align: center;
+        }
+    }
+
+  }
+}
+
+
+@media(max-width:1100px){
+  .weather-data{
+    grid-template-columns: repeat(3,1fr);
+    & .weather-right{
+        grid-column: span 2;
+          & .highlights{
+            grid-template-columns: repeat(3,1fr);
+            & .card:nth-child(1){
+grid-column: span 3;
+            }
+          }
+         & .hourly-forecast{
+          grid-template-columns: repeat(6,1fr);
+        }
+    }
+  }
+}
+
+@media(max-width:1040px){
+  .weather-data{
+    grid-template-columns: repeat(2,1fr);
+    & .weather-right{
+        grid-column: span 1;
+          & .highlights{
+            grid-template-columns: repeat(2,1fr);
+            & .card:nth-child(1){
+grid-column: span 2;
+            }
+          }
+         & .hourly-forecast{
+          grid-template-columns: repeat(4,1fr);
+        }
+    }
+  }
+}
+
+@media(max-width:992px){
+  .weather-data .weather-right .highlights{
+    &.card{
+         grid-column: span 2;
+    }
+     & .air-index{
+        grid-template-columns: repeat(3,1fr);
+     }
+    }
+  
+}
+@media (max-width: 768px) {
+  .weather-data {
+    grid-template-columns: 1fr;
+  }
+  .weather-left, .weather-right {
+    grid-column: span 1;
+  }
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+  .hourly-forecast {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    flex-direction: column;
+  }
+  .header > * {
+    margin-bottom: 10px;
+  }
+  #city-input, #search-button, #location-button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .highlights {
+    grid-template-columns: 1fr;
+  }
+  .hourly-forecast {
+    grid-template-columns: 1fr;
   }
 }
