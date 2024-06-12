@@ -15,9 +15,9 @@ let hourlyForeCastCard = document.querySelector(".hourly-forecast");
 let ApiKey = "3e6ac8648a9b26b8803ae7715a956e0a";
 
 function getWeatherDetails(name, lat, lon, country, state) {
-  let FORCATS_API_URL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${ApiKey}`;
-  let WEATHER_API_URL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}`;
-  let AIR_POLLUTION_API = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${ApiKey}`;
+  let FORCATS_API_URL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${ApiKey}`;
+  let WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${ApiKey}`;
+  let AIR_POLLUTION_API = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${ApiKey}`;
   let days = [
     "Sunday",
     "Monday",
@@ -231,7 +231,7 @@ function getCityCoordinate() {
   cityInput.value = "";
 
   if (!cityName) return;
-  let GEOCODIN_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${ApiKey}`;
+  let GEOCODIN_API_URL = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${ApiKey}`;
   fetch(GEOCODIN_API_URL)
     .then((res) => res.json())
     .then((data) => {
@@ -246,7 +246,7 @@ function getCityCoordinate() {
   function getUserCity (){
       navigator.geolocation.getCurrentPosition(position=>{
         let {latitude,longitude} = position.coords;
-       let REVERSE_GEOCODING_URL = `http://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${ApiKey}`
+       let REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${ApiKey}`
 
        fetch(REVERSE_GEOCODING_URL)
        .then((res)=>res.json())
